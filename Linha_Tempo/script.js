@@ -34,7 +34,7 @@ window.addEventListener("scroll", function() {
   }
   
   // Tocar música após o primeiro clique em qualquer lugar
-  window.addEventListener('scroll', function primeiraInteracao() {
+  window.addEventListener('DOMContentLoaded', function primeiraInteracao() {
       const audio = document.getElementById('audio');
       if (!tocando) {
         audio.play();
