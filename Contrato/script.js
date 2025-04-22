@@ -4,11 +4,11 @@ function assinarContrato() {
     const voltarBtn = document.getElementById("voltar-btn");
     msg.style.display = "block";
     voltarBtn.style.display = "block";
+    mostrarAlerta("Aviso sua alma foi vendida para mim AHAHHAHAHAHHA, brincadeira, porém agora não tem mais volta nunca maiss, e acho que você vai querer ler tudo denovo 💋");
     secreto.forEach((elemento) => {
         elemento.style.display = 'block';
       });
 
-      alert("Aviso sua alma foi vendida para mim AHAHHAHAHAHHA, brincadeira, porém agora não tem mais volta nunca maiss, e acho que você vai querer ler tudo denovo")
 }
 
 let tocando = false;
@@ -40,3 +40,14 @@ window.addEventListener('click', function primeiraInteracao() {
     window.removeEventListener('click', primeiraInteracao);
   });
   
+  function mostrarAlerta(mensagem) {
+    document.querySelector(".alerta-mensagem").textContent = mensagem;
+    document.getElementById("meu-alerta").style.display = "block";
+  }
+  
+  function fecharAlerta() {
+    document.getElementById("meu-alerta").style.display = "none";
+  }
+  
+
+
