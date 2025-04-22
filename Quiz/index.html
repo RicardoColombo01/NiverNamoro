@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Amor 💘</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="quiz-container">
+        <h1>💘 Jogo do Amor 💘</h1>
+        <div id="pergunta-container">
+            <p id="pergunta-texto"></p>
+            <div id="opcoes"></div>
+        </div>
+        <button id="proxima-btn">Próxima</button>
+        <div id="resultado" class="escondido"></div>
+        <button id="recomecar-btn" class="escondido">Jogar de Novo</button>
+
+        <a href="../Principal/index.html" class="escondido" id="voltar-btn">⬅ Voltar para a Página Inicial</a>
+    </div>
+
+
+    <audio id="audio" src="Musica/instrumental.mpeg" loop></audio>
+
+    <button id="botaoMusica" onclick="toggleMusica()">🎵 Tocar Música</button>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+body {
+  font-family: "Comic Sans MS", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: pink;
+}
+
+.roda {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 10px solid white;
+  background: conic-gradient(
+    #f8b195 0% 20%,
+    #f67280 20% 40%,
+    #c06c84 40% 60%,
+    #6c5b7b 60% 80%,
+    #355c7d 80% 100%
+  );
+  position: relative;
+  transition: transform 3s ease-out;
+}
+
+.ponteiro {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid red;
+  position: absolute;
+  top: -30px;
+  left: calc(50% - 15px);
+}
+
+button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: deeppink;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f67280;
+}
+
+#resultado {
+  margin-top: 20px;
+  font-size: 24px;
+  color: darkred;
+  font-weight: bold;
+}
+
+@keyframes aparecerColorido {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+    color: #ff99cc;
+  }
+  50% {
+    color: #66ccff;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    color: #ff6699;
+  }
+}
+
+#resultado.colorido {
+  animation: aparecerColorido 2s ease-out;
+}
+
+.voltar-btn {
+  display: none;
+  margin: 20px;
+  padding: 12px 24px;
+  background-color: #ff1493;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 150px;
+}
+
+.voltar-btn:hover {
+  background-color: #db1370;
+}
