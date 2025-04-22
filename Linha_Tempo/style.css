@@ -1,0 +1,235 @@
+/* Geral */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  background-color: #ff4081;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+header h3 {
+  margin-left: 400px; /* move pra direita */
+  margin-top: 20px; /* move pra baixo */
+}
+
+main {
+  padding: 20px;
+  width: 80%;
+  max-width: 900px;
+}
+
+.linha-do-tempo {
+  position: relative;
+  margin: 50px 0;
+}
+
+/* Espaçamento entre os eventos */
+.evento {
+  display: flex;
+  align-items: center;
+  margin: 40px 0; /* Aumentei a margem para 40px (pode aumentar ainda mais se necessário) */
+  position: relative;
+}
+
+/* Ajustando o espaço entre a data e a descrição */
+.data {
+  background-color: #ff4081;
+  color: white;
+  padding: 12px 18px; /* Um pouco mais de padding para deixar a bolinha maior */
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 30px; /* Aumentei o espaço entre a bolinha e o conteúdo */
+  position: relative;
+  z-index: 1;
+}
+
+.descricao {
+  background-color: #ffffff;
+  padding: 20px; /* Aumentei o padding da descrição para dar mais espaço */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 450px; /* Aumentei um pouco o tamanho máximo da descrição */
+}
+
+/* A linha do tempo */
+.linha-do-tempo::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background-color: #ff4081;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Adicionando estilo para as imagens nos eventos */
+.imagem-evento {
+  width: 100%;
+  max-width: 400px; /* Limitar o tamanho máximo */
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.imagem-evento:hover {
+  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Adicionando a animação de entrada */
+.evento.ativo .descricao {
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Inicialmente, todos os eventos terão opacidade 0 */
+.evento {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.evento.ativo {
+  opacity: 1; /* Quando o evento for ativado, ele se tornará visível */
+}
+
+#botaoMusica {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  color: #ff4081;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 344px) and (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  header {
+    padding: 20px;
+    width: 100%;
+  }
+
+  header h3 {
+    margin-left: 200px; /* move pra direita */
+    margin-top: 20px; /* move pra baixo */
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .imagem-evento {
+    width: 160px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  header {
+    padding: 40px;
+    width: 100%;
+  }
+
+  header h3 {
+    margin-left: 300px; /* move pra direita */
+    margin-top: 20px; /* move pra baixo */
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+  }
+
+  .imagem-evento {
+    width: 300px;
+  }
+  #botaoMusica {
+    padding: 40px 44px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  h1 {
+    font-size: 5rem;
+  }
+
+  header {
+    padding: 40px;
+    width: 100%;
+  }
+
+  header h3 {
+    margin-left: 300px; /* move pra direita */
+    margin-top: 20px; /* move pra baixo */
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 2.3rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+  .imagem-evento {
+    width: 300px;
+  }
+
+  #botaoMusica {
+    padding: 40px 44px;
+    font-size: 1.5rem;
+  }
+}
+
+.voltar-btn {
+  display: inline-block;
+  margin: 20px;
+  padding: 12px 24px;
+  background-color: #ff1493;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.voltar-btn:hover {
+  background-color: #db1370;
+}
