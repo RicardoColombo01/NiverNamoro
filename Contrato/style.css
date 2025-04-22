@@ -118,3 +118,44 @@ button:hover {
 #voltar-btn:hover {
   background-color: #db1370;
 }
+
+.alerta {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background-color: white;
+  border: 2px solid #ff69b4;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  padding: 20px;
+  width: 300px;
+  display: none;
+  text-align: center;
+}
+
+.alerta-topo {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ff1493;
+  margin-bottom: 10px;
+}
+
+.alerta-mensagem {
+  margin-bottom: 15px;
+}
+
+.alerta button {
+  padding: 8px 16px;
+  background-color: #ff1493;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.alerta button:hover {
+  background-color: #db1370;
+}
