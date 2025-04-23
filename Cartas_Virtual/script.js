@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', function primeiraInteracao() {
       tocando = true;
     }
     // Remove o listener após o primeiro clique
-    window.removeEventListener('click', primeiraInteracao);
+    window.removeEventListener('DOMContentLoaded', primeiraInteracao);
   });
   
 
