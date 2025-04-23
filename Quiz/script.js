@@ -181,7 +181,7 @@ function toggleMusica() {
 }
 
 // Tocar música após o primeiro clique em qualquer lugar
-window.addEventListener('click', function primeiraInteracao() {
+window.addEventListener('DOMContentLoaded', function primeiraInteracao() {
     const audio = document.getElementById('audio');
     if (!tocando) {
       audio.play();
@@ -189,7 +189,7 @@ window.addEventListener('click', function primeiraInteracao() {
       tocando = true;
     }
     // Remove o listener após o primeiro clique
-    window.removeEventListener('click', primeiraInteracao);
+    window.removeEventListener('DOMContentLoaded', primeiraInteracao);
   });
 
   
