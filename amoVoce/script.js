@@ -154,31 +154,58 @@ const frases = [
     listaElement.appendChild(createItem(frases[i % frases.length]));
   }
   
+ 
   let tocando = false;
+let musicaAtual = null;
 
 function toggleMusica() {
   const audio = document.getElementById('audio');
+  const audio2 = document.getElementById('audio2');
+  const audio3 = document.getElementById('audio3');
   const botao = document.getElementById('botaoMusica');
 
-  if (!tocando) {
-    audio.play();
-    botao.textContent = "⏸️ Pausar Música";
-  } else {
-    audio.pause();
+  if (tocando) {
+    if (musicaAtual) musicaAtual.pause();
     botao.textContent = "🎵 Tocar Música";
+  } else {
+    if (musicaAtual) {
+      musicaAtual.play();
+      botao.textContent = "⏸️ Pausar Música";
+    }
   }
 
   tocando = !tocando;
 }
 
-// Tocar música após o primeiro clique em qualquer lugar
-window.addEventListener('DOMContentLoaded', function primeiraInteracao() {
-    const audio = document.getElementById('audio');
-    if (!tocando) {
+function primeiraInteracao() {
+  const audio = document.getElementById('audio');
+  const audio2 = document.getElementById('audio2');
+  const audio3 = document.getElementById('audio3');
+  const botao = document.getElementById('botaoMusica');
+
+  if (!tocando) {
+    musicaAtual = audio;
+    musicaAtual.play();
+    botao.textContent = "⏸️ Pausar Música";
+    tocando = true;
+
+    audio.addEventListener("ended", () => {
+      musicaAtual = audio2;
+      audio2.play();
+    });
+    audio2.addEventListener("ended", () => {
+      musicaAtual = audio3;
+      audio3.play();
+    });
+    audio3.addEventListener("ended", () => {
+      musicaAtual = audio;
       audio.play();
-      document.getElementById('botaoMusica').textContent = "⏸️ Pausar Música";
-      tocando = true;
-    }
-    // Remove o listener após o primeiro clique
-    window.removeEventListener('click', primeiraInteracao);
-  });
+    });
+  }
+
+  // Remove o listener corretamente
+  window.removeEventListener('DOMContentLoaded', primeiraInteracao);
+}
+
+// Adiciona o evento uma vez só
+window.addEventListener('DOMContentLoaded', primeiraInteracao);
