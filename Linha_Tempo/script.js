@@ -2,11 +2,10 @@
 window.addEventListener("scroll", function() {
     const eventos = document.querySelectorAll('.evento');
     const offset = window.innerHeight / 1.5; // A janela deve rolar mais de 1/3 para começar a animação
-  
     eventos.forEach(evento => {
       if (evento.getBoundingClientRect().top < offset) {
         evento.classList.add('ativo');
-      }
+      } 
     });
   });
   
@@ -17,34 +16,50 @@ window.addEventListener("scroll", function() {
   
 
   let tocando = false;
+let musicaAtual = null;
 
-  function toggleMusica() {
-    const audio = document.getElementById('audio');
-    const botao = document.getElementById('botaoMusica');
-  
-    if (!tocando) {
-      audio.play();
+function toggleMusica() {
+  const audio = document.getElementById('audio');
+  const audio2 = document.getElementById('audio2');
+  const botao = document.getElementById('botaoMusica');
+
+  if (tocando) {
+    if (musicaAtual) musicaAtual.pause();
+    botao.textContent = "🎵 Tocar Música";
+  } else {
+    if (musicaAtual) {
+      musicaAtual.play();
       botao.textContent = "⏸️ Pausar Música";
-    } else {
-      audio.pause();
-      botao.textContent = "🎵 Tocar Música";
     }
-  
-    tocando = !tocando;
   }
-  
-  // Tocar música após o primeiro clique em qualquer lugar
-  window.addEventListener('DOMContentLoaded', function primeiraInteracao() {
-      const audio = document.getElementById('audio');
-      if (!tocando) {
-        audio.play();
-        document.getElementById('botaoMusica').textContent = "⏸️ Pausar Música";
-        tocando = true;
-      }
-      // Remove o listener após o primeiro clique
-      window.removeEventListener('click', primeiraInteracao);
+
+  tocando = !tocando;
+}
+
+function primeiraInteracao() {
+  const audio = document.getElementById('audio');
+  const audio2 = document.getElementById('audio2');
+  const botao = document.getElementById('botaoMusica');
+
+  if (!tocando) {
+    musicaAtual = audio;
+    musicaAtual.play();
+    botao.textContent = "⏸️ Pausar Música";
+    tocando = true;
+
+    audio.addEventListener("ended", () => {
+      musicaAtual = audio2;
+      audio2.play();
     });
-    
+  }
+
+  // Remove o listener corretamente
+  window.removeEventListener('DOMContentLoaded', primeiraInteracao);
+}
+
+// Adiciona o evento uma vez só
+window.addEventListener('DOMContentLoaded', primeiraInteracao);
+
 
 let jaDisparou = false;
 
