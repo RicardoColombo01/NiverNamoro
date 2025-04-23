@@ -51,7 +51,7 @@ function primeiraInteracao() {
       musicaAtual = audio2;
       audio2.play();
     });
-       audio2.addEventListener("ended", () => {
+    audio2.addEventListener("ended", () => {
       musicaAtual = audio;
       audio.play();
     });
