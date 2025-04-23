@@ -181,7 +181,7 @@ function toggleMusica() {
 }
 
 // Tocar música após o primeiro clique em qualquer lugar
-window.addEventListener('DOMContentLoaded', function primeiraInteracao() {
+window.addEventListener('click', function primeiraInteracao() {
     const audio = document.getElementById('audio');
     if (!tocando) {
       audio.play();
