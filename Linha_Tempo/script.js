@@ -51,6 +51,10 @@ function primeiraInteracao() {
       musicaAtual = audio2;
       audio2.play();
     });
+       audio2.addEventListener("ended", () => {
+      musicaAtual = audio;
+      audio.play();
+    });
   }
 
   // Remove o listener corretamente
